@@ -1,0 +1,20 @@
+[package]
+name = "channel-monitor"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+flume = ["dep:flume"]
+kanal = ["dep:kanal"]
+broadcast = ["flume"]
+
+[dependencies]
+prometheus = "0.14"
+tokio = { version = "1", features = ["rt", "time"] }
+tracing = "0"
+
+flume = { version = "0.12", optional = true }
+kanal = { version = "0.1", features = ["async"], optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
